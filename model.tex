@@ -2,6 +2,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
+\usepackage{url}
+\usepackage{hyperref}
+
 \usepackage{amssymb}
 \usepackage{commath}
 \usepackage[retainorgcmds]{IEEEtrantools}
@@ -9,10 +12,24 @@
 \newcommand*{\dx}{\dif{}x}
 
 \begin{document}
-We solve the time-independent Schrödinger equation in 2D on a unit square.
+We solve the time-independent Schrödinger equation in 2D on a unit square
+$\Omega = [0,1]^2$.
 \[ -\frac{\hbar}{2m} \nabla^2 \Psi + V \Psi = E \Psi\]
+An infinite potential $V$ outside of the square forces the solution to zero
+outside and especially on the boundary.
+So we have $u = 0$ on $\partial\Omega$.
 
-We look for $\Psi \in H^1_0(\Omega)$, s.t. $\forall \phi \in H^1_0(\Omega)$:
+The variational formulation thus is:
+Find $\Psi \in H^1_0(\Omega)$, s.t. $\forall \phi \in H^1_0(\Omega)$:
 \[ \int_{\Omega} \frac{\hbar}{2m} \nabla \Psi \cdot \nabla\phi \dx =
   \int_{\Omega} (E - V) \Psi \phi\dx\]
+
+Which with matrices then reads as $A u = \lambda M u$.
+
+We first try the power iteration for the matrix $M^{-1} A$ to get biggest eigenvalue.
+Start with random vector $u_0$ and then:
+
+\[ u_{k+1} = \frac{M^{-1} A u_k}{\norm{M^{-1}Au_k}}\]
+
+\url{https://ngsolve.org/docu/nightly/i-tutorials/unit-2.2-eigenvalues/pinvit.html}
 \end{document}

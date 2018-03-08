@@ -12,7 +12,22 @@
    CLOSED: [2018-03-08 Thu 21:14]
 ** DONE Random initial value
    CLOSED: [2018-03-08 Thu 21:18]
-** NEXT Understand eigenvalue solver
-** TODO Implement Eigenvalue solver
+** DONE Understand eigenvalue solver
+   CLOSED: [2018-03-08 Thu 21:40]
+https://en.wikipedia.org/wiki/Power_iteration
+** NEXT Implement power iteration
+* Ideas
+** Use more sophisticated eigen value solvers
+See the reference.
+Inverse iteration to find more then only the biggest one?
+https://en.wikipedia.org/wiki/Inverse_iteration
+How to get the smallest one?
+** Use non-square geometry
+** 3dimensional!
+** Use AMG Preconditioner
+** Draw probability density
+** Use non-zero potential to demonstrate tunneling!
+** Also do 1dimensionl
+** Dirac equation
 * Resources
 https://ngsolve.org/docu/nightly/i-tutorials/unit-2.2-eigenvalues/pinvit.html
