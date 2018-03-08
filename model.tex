@@ -6,7 +6,13 @@
 \usepackage{commath}
 \usepackage[retainorgcmds]{IEEEtrantools}
 
+\newcommand*{\dx}{\dif{}x}
+
 \begin{document}
 We solve the time-independent Schrödinger equation in 2D on a unit square.
 \[ -\frac{\hbar}{2m} \nabla^2 \Psi + V \Psi = E \Psi\]
+
+We look for $\Psi \in H^1_0(\Omega)$, s.t. $\forall \phi \in H^1_0(\Omega)$:
+\[ \int_{\Omega} \frac{\hbar}{2m} \nabla \Psi \cdot \nabla\phi \dx =
+  \int_{\Omega} (E - V) \Psi \phi\dx\]
 \end{document}

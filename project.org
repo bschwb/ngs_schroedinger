@@ -6,6 +6,8 @@
 ** DONE All dirichlet boundary conditions?
    CLOSED: [2018-03-08 Thu 21:06]
    Yes. Should work like infinite potential outside.
+** DONE Write out variational formulation
+   CLOSED: [2018-03-08 Thu 21:12]
 ** NEXT Add bilinearforms
 ** TODO Random initial value
 ** TODO Understand eigenvalue solver
