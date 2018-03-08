@@ -15,7 +15,15 @@
 ** DONE Understand eigenvalue solver
    CLOSED: [2018-03-08 Thu 21:40]
 https://en.wikipedia.org/wiki/Power_iteration
-** NEXT Implement power iteration
+** DONE Implement power iteration
+   CLOSED: [2018-03-08 Thu 21:49]
+Maybe a problem is, that we are looking for the highest eigenvalue,
+which corresponds to a highly oscillating eigenfunction.
+If we then use a finer mesh, we will get an even higher eigenvalue
+with an even more oscillating eigenfunction.
+Try looking finding smallest eigenvalue first.
+** NEXT Research how to find smallest eigenvalue
+** TODO Implement finding smallest eigenvalue
 * Ideas
 ** Use more sophisticated eigen value solvers
 See the reference.

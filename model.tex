@@ -12,6 +12,7 @@
 \newcommand*{\dx}{\dif{}x}
 
 \begin{document}
+\section*{Model}
 We solve the time-independent Schrödinger equation in 2D on a unit square
 $\Omega = [0,1]^2$.
 \[ -\frac{\hbar}{2m} \nabla^2 \Psi + V \Psi = E \Psi\]
@@ -19,17 +20,25 @@ An infinite potential $V$ outside of the square forces the solution to zero
 outside and especially on the boundary.
 So we have $u = 0$ on $\partial\Omega$.
 
+\section*{Variational Formulation}
 The variational formulation thus is:
+
 Find $\Psi \in H^1_0(\Omega)$, s.t. $\forall \phi \in H^1_0(\Omega)$:
 \[ \int_{\Omega} \frac{\hbar}{2m} \nabla \Psi \cdot \nabla\phi \dx =
   \int_{\Omega} (E - V) \Psi \phi\dx\]
 
 Which with matrices then reads as $A u = \lambda M u$.
 
+\section*{Numerical Solutions}
+\subsection*{Power Method}
 We first try the power iteration for the matrix $M^{-1} A$ to get biggest eigenvalue.
 Start with random vector $u_0$ and then:
-
 \[ u_{k+1} = \frac{M^{-1} A u_k}{\norm{M^{-1}Au_k}}\]
+The problem here is, that the biggest eigenvalue corresponds with the most
+oscillating eigenfunction.
+For this eigenfunction the mesh might be to course.
+Working with a finer mesh increases the size of the matrix, which might lead to
+an even bigger eigenvalue with an even higher oscillating eigenfunction.
 
 \url{https://ngsolve.org/docu/nightly/i-tutorials/unit-2.2-eigenvalues/pinvit.html}
 \end{document}
