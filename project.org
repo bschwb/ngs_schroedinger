@@ -1,9 +1,12 @@
 * TODOs
 ** DONE Use square geometry
    CLOSED: [2018-03-08 Thu 21:04]
-** NEXT Add complex space
-** TODO All dirichlet boundary conditions?
-** TODO Add bilinearforms
+** DONE Add complex space
+   CLOSED: [2018-03-08 Thu 21:06]
+** DONE All dirichlet boundary conditions?
+   CLOSED: [2018-03-08 Thu 21:06]
+   Yes. Should work like infinite potential outside.
+** NEXT Add bilinearforms
 ** TODO Random initial value
 ** TODO Understand eigenvalue solver
 ** TODO Implement Eigenvalue solver
