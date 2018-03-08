@@ -1,0 +1,10 @@
+* TODOs
+** TODO Use square geometry
+** TODO Add complex space
+** TODO All dirichlet boundary conditions?
+** TODO Add bilinearforms
+** TODO Random initial value
+** TODO Understand eigenvalue solver
+** TODO Implement Eigenvalue solver
+* Resources
+https://ngsolve.org/docu/nightly/i-tutorials/unit-2.2-eigenvalues/pinvit.html
