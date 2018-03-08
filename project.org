@@ -8,8 +8,9 @@
    Yes. Should work like infinite potential outside.
 ** DONE Write out variational formulation
    CLOSED: [2018-03-08 Thu 21:12]
-** NEXT Add bilinearforms
-** TODO Random initial value
+** DONE Add bilinearforms
+   CLOSED: [2018-03-08 Thu 21:14]
+** NEXT Random initial value
 ** TODO Understand eigenvalue solver
 ** TODO Implement Eigenvalue solver
 * Resources
