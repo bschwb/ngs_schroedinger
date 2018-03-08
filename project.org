@@ -1,6 +1,7 @@
 * TODOs
-** TODO Use square geometry
-** TODO Add complex space
+** DONE Use square geometry
+   CLOSED: [2018-03-08 Thu 21:04]
+** NEXT Add complex space
 ** TODO All dirichlet boundary conditions?
 ** TODO Add bilinearforms
 ** TODO Random initial value
