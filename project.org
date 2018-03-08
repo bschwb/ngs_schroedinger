@@ -10,8 +10,9 @@
    CLOSED: [2018-03-08 Thu 21:12]
 ** DONE Add bilinearforms
    CLOSED: [2018-03-08 Thu 21:14]
-** NEXT Random initial value
-** TODO Understand eigenvalue solver
+** DONE Random initial value
+   CLOSED: [2018-03-08 Thu 21:18]
+** NEXT Understand eigenvalue solver
 ** TODO Implement Eigenvalue solver
 * Resources
 https://ngsolve.org/docu/nightly/i-tutorials/unit-2.2-eigenvalues/pinvit.html
