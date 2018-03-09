@@ -22,8 +22,14 @@ which corresponds to a highly oscillating eigenfunction.
 If we then use a finer mesh, we will get an even higher eigenvalue
 with an even more oscillating eigenfunction.
 Try looking finding smallest eigenvalue first.
-** NEXT Research how to find smallest eigenvalue
-** TODO Implement finding smallest eigenvalue
+** DONE Research how to find smallest eigenvalue
+   CLOSED: [2018-03-09 Fri 17:35]
+The i-tutorial [1] says, that the inverse iteration will converge to the smallest eigenvalue.
+Why? I mean inverse iteration is shifted somehow.
+Is there intuition why not shifted converges to smallest?
+kind of bc 1/biggest_ev is smalles etc. of inverse?
+So power iteration of inverse (= inverse iteration) would converge to smallest!!!!
+** NEXT Implement finding smallest eigenvalue
 * Ideas
 ** Use more sophisticated eigen value solvers
 See the reference.
@@ -38,4 +44,4 @@ How to get the smallest one?
 ** Also do 1dimensionl
 ** Dirac equation
 * Resources
-https://ngsolve.org/docu/nightly/i-tutorials/unit-2.2-eigenvalues/pinvit.html
+[1] https://ngsolve.org/docu/nightly/i-tutorials/unit-2.2-eigenvalues/pinvit.html

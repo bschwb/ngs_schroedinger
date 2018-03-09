@@ -40,5 +40,13 @@ For this eigenfunction the mesh might be to course.
 Working with a finer mesh increases the size of the matrix, which might lead to
 an even bigger eigenvalue with an even higher oscillating eigenfunction.
 
+\subsection*{Inverse Power Method}
+We now iterate with the inverse matrix of the product.
+Thus we will get the biggest eigenvalue for the inverse matrix, which for
+invertible matrices corresponds to the inverse of the smallest eigenvalue.
+\[ \lambda^{A^{-1}}_{max} = \frac{1}{\lambda^A_{min}} \]
+So the inverse iteration here is:
+\[ u_{k+1} = \frac{A^{-1} M u_k}{\norm{A^{-1}Mu_k}}\]
+
 \url{https://ngsolve.org/docu/nightly/i-tutorials/unit-2.2-eigenvalues/pinvit.html}
 \end{document}
