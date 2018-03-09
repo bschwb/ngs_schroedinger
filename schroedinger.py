@@ -29,11 +29,11 @@ freedofs = fes.FreeDofs()
 for i in range(len(gf_psi.vec)):
     gf_psi.vec[i] = random() if freedofs[i] else 0
 
-inv = m.mat.Inverse(freedofs)
+inv = a.mat.Inverse(freedofs)
 
 w = gf_psi.vec.CreateVector()
-for i in range(1000):
-    w.data = a.mat * gf_psi.vec
+for i in range(100):
+    w.data = m.mat * gf_psi.vec
     gf_psi.vec.data = inv * w
     norm = 1/ngs.Norm(gf_psi.vec)
     gf_psi.vec.data = norm * gf_psi.vec

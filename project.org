@@ -29,7 +29,10 @@ Why? I mean inverse iteration is shifted somehow.
 Is there intuition why not shifted converges to smallest?
 kind of bc 1/biggest_ev is smalles etc. of inverse?
 So power iteration of inverse (= inverse iteration) would converge to smallest!!!!
-** NEXT Implement finding smallest eigenvalue
+** DONE Implement finding smallest eigenvalue
+   CLOSED: [2018-03-09 Fri 17:35]
+** NEXT Research how to find more eigenvectors
+** TODO Implement finding more eigenvectors
 * Ideas
 ** Use more sophisticated eigen value solvers
 See the reference.
