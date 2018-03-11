@@ -43,8 +43,9 @@ Warning: switching to std evalution in SetValues since: AddTrans simdir not impl
 #+END_SRC
 It's only about not implemented SIMD.
 Probably because it's not implemented for complex functions.
-*** NEXT Write down Crank-Nicolson timestep
-*** TODO Add Crank-Nicolson timestep
+*** DONE Write down Crank-Nicolson timestep
+    CLOSED: [2018-03-11 Sun 13:59]
+*** NEXT Implement Crank-Nicolson timestep
 ** TODO Add a potential barrier
 * Ideas
 ** Use more sophisticated eigen value solvers

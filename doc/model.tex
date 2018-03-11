@@ -10,6 +10,7 @@
 \usepackage[retainorgcmds]{IEEEtrantools}
 
 \newcommand*{\dx}{\dif{}x}
+\newcommand*{\Dt}{\Delta{}t}
 
 \begin{document}
 \section{Time-Independent Schrödinger Equation}
@@ -60,8 +61,8 @@ Find $\Psi(t) \in H^1_0(\Omega)$, s.t. $\forall \phi(t) \in H^1_0(\Omega)$:
   \frac{\partial\Psi}{\partial{}t} \phi\dx\]
 
 \subsection{Numerical Solutions}
-With matrices this then looks like:
-\[A u + V u = M \frac{\partial{}u}{\partial{}t}\]
+Using the Galerking method we obtain an equation with matrices:
+\[A u = M \frac{\partial{}u}{\partial{}t}\]
 
 The initial condition should be a wave packet with center $x_0$, mean momentum
 $\hbar k_0$ and $\sigma = \Delta x$ uncertainty in the position of the particle.
@@ -72,6 +73,11 @@ normalized to $\int_{\Omega}\psi(x)^2\dx = 1$
 \subsubsection{Time Stepping}
 From~\cite{Sehra07} we know that the Crank-Nicolson method works well for time
 discretization of this equation.
+\[ \frac{1}{2} (A u_{n+1} + A u_{n}) = M \frac{u_{n+1} - u_n}{\Dt} \]
+We now rearange to get our update rule:
+\[ \left( \frac{\Dt}{2}A - M \right) u_{n+1} + \left( \frac{\Dt}{2} A + M \right) u_n = 0\]
+\[ \left( \frac{\Dt}{2}A - M \right) (u_{n+1} - u_n) + \Dt A u_n = 0\]
+\[ u_{n+1} - u_n = \Dt \left( \frac{\Dt}{2}A - M \right)^{-1} A u_n\]
 
 \bibliography{model}{}
 \bibliographystyle{alpha}
