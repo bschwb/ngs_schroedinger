@@ -31,14 +31,21 @@ kind of bc 1/biggest_ev is smalles etc. of inverse?
 So power iteration of inverse (= inverse iteration) would converge to smallest!!!!
 ** DONE Implement finding smallest eigenvalue
    CLOSED: [2018-03-09 Fri 17:35]
-** NEXT Research how to find more eigenvectors
-** TODO Implement finding more eigenvectors
+** NEXT Solve time-dependent Schrödinger equation
+*** DONE What to use as an initial condition?
+    CLOSED: [2018-03-10 Sat 22:40]
+In [2] a wave packet is used.
+*** NEXT Add wave-packet initial condition
+*** TODO Add Crank-Nicolson timestep
 * Ideas
 ** Use more sophisticated eigen value solvers
 See the reference.
 Inverse iteration to find more then only the biggest one?
 https://en.wikipedia.org/wiki/Inverse_iteration
 How to get the smallest one?
+*** Research how to find more eigenvectors
+[1] Has some tricks on how to find more eigenvalues and eigenvectors.
+Not sure if I should keep solving for eigenvalues, seems pretty boring to show.
 ** Use non-square geometry
 ** 3dimensional!
 ** Use AMG Preconditioner
@@ -48,3 +55,4 @@ How to get the smallest one?
 ** Dirac equation
 * Resources
 [1] https://ngsolve.org/docu/nightly/i-tutorials/unit-2.2-eigenvalues/pinvit.html
+[2] Sehra A.S., Master Thesis, Finite Element Analysis of the Schrödinger Equation, Univ. Wales Swansea, (2007)

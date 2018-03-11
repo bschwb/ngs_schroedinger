@@ -3,7 +3,6 @@
 \usepackage[english]{babel}
 
 \usepackage{url}
-\usepackage{hyperref}
 
 \usepackage{amssymb}
 \usepackage{commath}
@@ -12,7 +11,7 @@
 \newcommand*{\dx}{\dif{}x}
 
 \begin{document}
-\section*{Model}
+\section{Time-Independent Schrödinger Equation}
 We solve the time-independent Schrödinger equation in 2D on a unit square
 $\Omega = [0,1]^2$.
 \[ -\frac{\hbar}{2m} \nabla^2 \Psi + V \Psi = E \Psi\]
@@ -20,7 +19,7 @@ An infinite potential $V$ outside of the square forces the solution to zero
 outside and especially on the boundary.
 So we have $u = 0$ on $\partial\Omega$.
 
-\section*{Variational Formulation}
+\subsection{Variational Formulation}
 The variational formulation thus is:
 
 Find $\Psi \in H^1_0(\Omega)$, s.t. $\forall \phi \in H^1_0(\Omega)$:
@@ -29,8 +28,8 @@ Find $\Psi \in H^1_0(\Omega)$, s.t. $\forall \phi \in H^1_0(\Omega)$:
 
 Which with matrices then reads as $A u = \lambda M u$.
 
-\section*{Numerical Solutions}
-\subsection*{Power Method}
+\subsection{Numerical Solutions}
+\subsubsection{Power Method}
 We first try the power iteration for the matrix $M^{-1} A$ to get biggest eigenvalue.
 Start with random vector $u_0$ and then:
 \[ u_{k+1} = \frac{M^{-1} A u_k}{\norm{M^{-1}Au_k}}\]
@@ -40,7 +39,7 @@ For this eigenfunction the mesh might be to course.
 Working with a finer mesh increases the size of the matrix, which might lead to
 an even bigger eigenvalue with an even higher oscillating eigenfunction.
 
-\subsection*{Inverse Power Method}
+\subsubsection{Inverse Power Method}
 We now iterate with the inverse matrix of the product.
 Thus we will get the biggest eigenvalue for the inverse matrix, which for
 invertible matrices corresponds to the inverse of the smallest eigenvalue.
@@ -48,5 +47,28 @@ invertible matrices corresponds to the inverse of the smallest eigenvalue.
 So the inverse iteration here is:
 \[ u_{k+1} = \frac{A^{-1} M u_k}{\norm{A^{-1}Mu_k}}\]
 
-\url{https://ngsolve.org/docu/nightly/i-tutorials/unit-2.2-eigenvalues/pinvit.html}
+\section{Time-Dependent Schrödinger Equation}
+Now we solve the time-dependent Schrödinger equation:
+\[ -\frac{\hbar}{2m} \nabla^2 \Psi + V \Psi = i \hbar \frac{\partial\Psi}{\partial{}t}\]
+
+\subsection{Variational Formulation}
+
+Find $\Psi(t) \in H^1_0(\Omega)$, s.t. $\forall \phi(t) \in H^1_0(\Omega)$:
+\[ \int_{\Omega} \frac{\hbar}{2m} \nabla \Psi \cdot \nabla\phi \dx +
+  \int_{\Omega} V \Psi \phi\dx = i \hbar\int_{\Omega}
+  \frac{\partial\Psi}{\partial{}t} \phi\dx\]
+
+\subsection{Numerical Solutions}
+With matrices this then looks like:
+\[A u + V u = M \frac{\partial{}u}{\partial{}t}\]
+From~\cite{Sehra07} we know that the Crank-Nicolson method works well for time
+discretization of this equation.\nocite{itutorial}
+
+The initial condition should be a wave packet with center $x_0$, mean momentum
+$\hbar k_0$ and $\sigma = \Delta x$ uncertainty in the position of the particle.
+\[\psi(x) =  e^{ik_0x}e^{-\frac{(x-x_0)^2}{4\sigma^2}}\]
+
+\bibliography{model}{}
+\bibliographystyle{alpha}
+
 \end{document}

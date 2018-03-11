@@ -1,4 +1,4 @@
-""" Simulate the time-independet Schrödingers Equation"""
+""" Simulate the time-independent Schrödinger Equation"""
 
 from scipy.constants import m_e, hbar
 
