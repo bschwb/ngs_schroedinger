@@ -12,8 +12,8 @@ m = ngm.Mesh()
 m.dim = 1
 
 n_elems = 1000
-x_min = -20
-x_max = 20
+x_min = -50
+x_max = 50
 length = x_max - x_min
 pnums = []
 for i in range(0, n_elems+1):
@@ -30,13 +30,25 @@ m.Add(ngm.Element0D(pnums[n_elems], index=2))
 
 ## NGSolve
 mesh = ngs.Mesh(m)
-fes = ngs.H1(mesh, order=1, dirichlet=[1,2], complex=True)
+fes = ngs.H1(mesh, order=1, dirichlet=[1, 2], complex=True)
 
 u = fes.TrialFunction()
 v = fes.TestFunction()
 
+## Potentials
+### Potential barrier
+barrier_w = 2
+barrier_h = 2
+potential = ngs.CoefficientFunction(ngs.IfPos(x, barrier_h, 0) - ngs.IfPos(x-barrier_w, barrier_h, 0))
+
+### Square potential
+# potential = ngs.CoefficientFunction(1/2*x*x-10)
+
+### Zero potential
+# potential = ngs.CoefficientFunction(0)
+
 a = ngs.BilinearForm(fes)
-a += ngs.SymbolicBFI(1/2 * grad(u) * grad(v))
+a += ngs.SymbolicBFI(1/2 * grad(u) * grad(v) + potential * u * v)
 a.Assemble()
 
 m = ngs.BilinearForm(fes)
@@ -44,12 +56,15 @@ m += ngs.SymbolicBFI(1j * u * v)
 m.Assemble()
 
 ## Initial condition
+### Gaussian wave packet
 delta_x = 2
-x0 = 0
+x0 = -20
 kx = 2
-# wave_packet = ngs.CoefficientFunction(
-#     exp(1j * (kx * x)) * exp(-((x-x0)**2)/4/delta_x**2))
-wave_packet = ngs.CoefficientFunction(IfPos(x, 1, 0))
+wave_packet = ngs.CoefficientFunction(
+    exp(1j * (kx * x)) * exp(-((x-x0)**2)/4/delta_x**2))
+
+### Heaviside function
+# wave_packet = ngs.CoefficientFunction(IfPos(x, 1, 0))
 
 gf_psi = ngs.GridFunction(fes)
 gf_psi.Set(wave_packet)
@@ -76,7 +91,7 @@ w = gf_psi.vec.CreateVector()
 du = gf_psi.vec.CreateVector()
 while t < max_time:
     t += timestep
-    sleep(0.1)
+    sleep(0.001)
     w.data = a.mat * gf_psi.vec
     du.data = inv * w
     gf_psi.vec.data -= timestep * du

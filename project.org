@@ -54,7 +54,8 @@ Probably because it's not implemented for complex functions.
 ** DONE Draw probability density
    CLOSED: [2018-03-11 Sun 23:28]
 ** NEXT Draw real/imag part
-** TODO Add potential barrier for one dimensional simulation
+** DONE Add potential barrier for one dimensional simulation
+   CLOSED: [2018-03-12 Mon 00:04]
 ** TODO Add a potential barrier for two dimensional simulation
 * Ideas
 ** Use more sophisticated eigen value solvers
@@ -73,6 +74,7 @@ Not sure if I should keep solving for eigenvalues, seems pretty boring to show.
 * Questions
 ** How is it with the momentum of the guassian wave packet?
 ** Do i have the correct 2-dimensional wave packet?
+** 
 * Resources
 [1] https://ngsolve.org/docu/nightly/i-tutorials/unit-2.2-eigenvalues/pinvit.html
 [2] Sehra A.S., Master Thesis, Finite Element Analysis of the Schrödinger Equation, Univ. Wales Swansea, (2007)
