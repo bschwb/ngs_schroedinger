@@ -31,7 +31,8 @@ kind of bc 1/biggest_ev is smalles etc. of inverse?
 So power iteration of inverse (= inverse iteration) would converge to smallest!!!!
 ** DONE Implement finding smallest eigenvalue
    CLOSED: [2018-03-09 Fri 17:35]
-** NEXT Solve time-dependent Schrödinger equation
+** DONE Solve time-dependent Schrödinger equation
+   CLOSED: [2018-03-11 Sun 19:55]
 *** DONE What to use as an initial condition?
     CLOSED: [2018-03-10 Sat 22:40]
 In [2] a wave packet is used.
@@ -45,8 +46,9 @@ It's only about not implemented SIMD.
 Probably because it's not implemented for complex functions.
 *** DONE Write down Crank-Nicolson timestep
     CLOSED: [2018-03-11 Sun 13:59]
-*** NEXT Implement Crank-Nicolson timestep
-** TODO Add a potential barrier
+*** DONE Implement Crank-Nicolson timestep
+    CLOSED: [2018-03-11 Sun 19:55]
+** NEXT Add a potential barrier
 * Ideas
 ** Use more sophisticated eigen value solvers
 See the reference.

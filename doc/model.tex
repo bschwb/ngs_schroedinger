@@ -73,11 +73,11 @@ normalized to $\int_{\Omega}\psi(x)^2\dx = 1$
 \subsubsection{Time Stepping}
 From~\cite{Sehra07} we know that the Crank-Nicolson method works well for time
 discretization of this equation.
-\[ \frac{1}{2} (A u_{n+1} + A u_{n}) = M \frac{u_{n+1} - u_n}{\Dt} \]
+\[ \frac{\Dt}{2} (A u_{n+1} + A u_{n}) = M (u_{n+1} - u_n) \]
 We now rearange to get our update rule:
 \[ \left( \frac{\Dt}{2}A - M \right) u_{n+1} + \left( \frac{\Dt}{2} A + M \right) u_n = 0\]
 \[ \left( \frac{\Dt}{2}A - M \right) (u_{n+1} - u_n) + \Dt A u_n = 0\]
-\[ u_{n+1} - u_n = \Dt \left( \frac{\Dt}{2}A - M \right)^{-1} A u_n\]
+\[ u_{n+1} - u_n = - \Dt \left( \frac{\Dt}{2}A - M \right)^{-1} A u_n\]
 
 \bibliography{model}{}
 \bibliographystyle{alpha}
