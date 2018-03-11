@@ -66,7 +66,9 @@ discretization of this equation.\nocite{itutorial}
 
 The initial condition should be a wave packet with center $x_0$, mean momentum
 $\hbar k_0$ and $\sigma = \Delta x$ uncertainty in the position of the particle.
-\[\psi(x) =  e^{ik_0x}e^{-\frac{(x-x_0)^2}{4\sigma^2}}\]
+\[\psi(x) =  e^{ik_0\cdot x}e^{-\frac{(x-x_0)^T(x-x_0)}{4\sigma^2}}\]
+Here $x$ can be 1, 2 or 3-dimensional and the function still needs to be
+normalized to $\int_{\Omega}\psi(x)^2\dx = 1$
 
 \bibliography{model}{}
 \bibliographystyle{alpha}
