@@ -69,7 +69,12 @@ Not sure if I should keep solving for eigenvalues, seems pretty boring to show.
 ** 3dimensional!
 ** Use AMG Preconditioner
 ** Dirac equation
+** Draw with matplotlib to show Potential at the same time
+* Questions
+** How is it with the momentum of the guassian wave packet?
+** Do i have the correct 2-dimensional wave packet?
 * Resources
 [1] https://ngsolve.org/docu/nightly/i-tutorials/unit-2.2-eigenvalues/pinvit.html
 [2] Sehra A.S., Master Thesis, Finite Element Analysis of the Schrödinger Equation, Univ. Wales Swansea, (2007)
 [3] https://ngsolve.org/docu/nightly/i-tutorials/unit-4.3-manualmesh/manualmeshing.html
+[4] Griffiths, Quantum

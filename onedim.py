@@ -47,8 +47,9 @@ m.Assemble()
 delta_x = 2
 x0 = 0
 kx = 2
-wave_packet = ngs.CoefficientFunction(
-    exp(1j * (kx * x)) * exp(-((x-x0)**2)/4/delta_x**2))
+# wave_packet = ngs.CoefficientFunction(
+#     exp(1j * (kx * x)) * exp(-((x-x0)**2)/4/delta_x**2))
+wave_packet = ngs.CoefficientFunction(IfPos(x, 1, 0))
 
 gf_psi = ngs.GridFunction(fes)
 gf_psi.Set(wave_packet)
@@ -60,10 +61,11 @@ for i in range(len(gf_psi.vec)):
         gf_psi.vec[i] = 0
 
 ngs.Draw(ngs.Norm(gf_psi), mesh, name='abs(psi)')
+input()
 
 ## Crank-Nicolson time step
-max_time = 1000
-timestep = 0.1
+max_time = 100
+timestep = 0.01
 t = 0
 
 mstar = m.mat.CreateMatrix()
@@ -74,10 +76,10 @@ w = gf_psi.vec.CreateVector()
 du = gf_psi.vec.CreateVector()
 while t < max_time:
     t += timestep
+    sleep(0.1)
     w.data = a.mat * gf_psi.vec
     du.data = inv * w
     gf_psi.vec.data -= timestep * du
 
-    sleep(0.1)
     print('t: ', t, ' Norm(psi): ', ngs.Norm(gf_psi.vec))
     ngs.Redraw()
