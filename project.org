@@ -35,8 +35,17 @@ So power iteration of inverse (= inverse iteration) would converge to smallest!!
 *** DONE What to use as an initial condition?
     CLOSED: [2018-03-10 Sat 22:40]
 In [2] a wave packet is used.
-*** NEXT Add wave-packet initial condition
+*** DONE Add wave-packet initial condition
+    CLOSED: [2018-03-11 Sun 13:36]
+Following warning doesn't matter:
+#+BEGIN_SRC
+Warning: switching to std evalution in SetValues since: AddTrans simdir not implemented for diffop N5ngfem8DiffOpIdILi2ENS_23BaseScalarFiniteElementEEE
+#+END_SRC
+It's only about not implemented SIMD.
+Probably because it's not implemented for complex functions.
+*** NEXT Write down Crank-Nicolson timestep
 *** TODO Add Crank-Nicolson timestep
+** TODO Add a potential barrier
 * Ideas
 ** Use more sophisticated eigen value solvers
 See the reference.

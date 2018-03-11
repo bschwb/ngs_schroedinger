@@ -3,6 +3,7 @@
 from scipy.constants import m_e, hbar
 
 import ngsolve as ngs
+from ngsolve import grad
 from netgen.geom2d import unit_square
 
 from random import random
@@ -38,4 +39,4 @@ for i in range(100):
     norm = 1/ngs.Norm(gf_psi.vec)
     gf_psi.vec.data = norm * gf_psi.vec
 
-Draw(gf_psi)
+ngs.Draw(gf_psi)
