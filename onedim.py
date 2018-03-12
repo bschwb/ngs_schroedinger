@@ -1,6 +1,7 @@
 from math import pi
 from time import sleep
 
+import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
@@ -84,9 +85,6 @@ for i in range(len(gf_psi.vec)):
     if not freedofs[i]:
         gf_psi.vec[i] = 0
 
-# ngs.Draw(ngs.Norm(gf_psi), mesh, name='abs(psi)')
-# ngs.Draw(gf_psi.real, mesh, name='psi.real')
-# ngs.Draw(gf_psi.imag, mesh, name='psi.imag')
 
 ## Crank-Nicolson time step
 max_time = 100
@@ -101,16 +99,18 @@ w = gf_psi.vec.CreateVector()
 du = gf_psi.vec.CreateVector()
 
 fig = plt.figure()
-ims = []
-while t < max_time:
-    t += timestep
+l1, l2, = plt.plot(xs, abs(gf_psi.vec.FV().NumPy()), 'g',
+                   xs, gf_potential.vec.FV().NumPy(), 'black')
+
+def run(t):
     w.data = a.mat * gf_psi.vec
     du.data = inv * w
     gf_psi.vec.data -= timestep * du
 
     print('t: ', t, ' Norm(psi): ', ngs.Norm(gf_psi.vec))
-    ims.append(plt.plot(xs, abs(gf_psi.vec.FV().NumPy()), 'g', xs, gf_potential.vec.FV().NumPy(), 'black'))
-    # ngs.Redraw()
+    l1.set_ydata(abs(gf_psi.vec.FV().NumPy()))
+    return l1, l2,
 
-im_ani = animation.ArtistAnimation(fig, ims, interval=0, blit=True)
+line_ani = animation.FuncAnimation(fig, run, np.arange(timestep, max_time, timestep),
+                                   interval=0, blit=True)
 plt.show()
