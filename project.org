@@ -73,12 +73,14 @@ Probably because it's not implemented for complex functions.
   * demonstrate different kind of potentials
   * demonstrate possibility to use different initial conditions
 - Show two-dimensional example
-*** NEXT Make slides for presentation
+*** DONE Make slides for presentation
+    CLOSED: [2018-03-12 Mon 12:49]
 **** DONE Slide titles
      CLOSED: [2018-03-12 Mon 10:46]
-**** NEXT Draft slides
-**** TODO Finish slides
-**** TODO Recheck slides for spelling etc.
+**** DONE Draft slides
+     CLOSED: [2018-03-12 Mon 11:32]
+**** DONE Recheck slides for spelling etc.
+     CLOSED: [2018-03-12 Mon 12:49]
 ** TODO Add a potential barrier for two-dimensional simulation
 * Ideas
 ** Use more sophisticated eigen value solvers
