@@ -76,7 +76,8 @@ for i in range(len(gf_psi.vec)):
         gf_psi.vec[i] = 0
 
 ngs.Draw(ngs.Norm(gf_psi), mesh, name='abs(psi)')
-input()
+# ngs.Draw(gf_psi.real, mesh, name='psi.real')
+# ngs.Draw(gf_psi.imag, mesh, name='psi.imag')
 
 ## Crank-Nicolson time step
 max_time = 100
