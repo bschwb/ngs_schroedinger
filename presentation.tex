@@ -1,0 +1,41 @@
+\documentclass{beamer}
+
+\mode<presentation>{\usetheme{Warsaw}
+\usecolortheme{beaver}
+\usepackage{amscd}
+}
+
+\title[Simulating the Schrödinger Equation with Finite Elements]{Schrödinger FEM}
+
+\author{Bernd Schwarzenbacher}
+\institute[KTH]
+{Stockholm \\
+\medskip
+}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{Time-Dependent Schrödinger Equation}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Discretization}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Time Stepping}
+- Crank-Nicolson, Trapez-Method
+\end{frame}
+
+\begin{frame}
+  \frametitle{Software}
+  \url{ngsolve.org}
+  Heavy lifting by NGSolve, Python \& C++
+- mention the hard parts:
+ * how to build Matrices
+ * computational intensive Inversion
+\end{frame}    
+
+\end{document}
