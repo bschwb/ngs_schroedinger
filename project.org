@@ -59,6 +59,31 @@ Probably because it's not implemented for complex functions.
    CLOSED: [2018-03-12 Mon 00:04]
 ** DONE Draw with matplotlib to show Potential at the same time
    CLOSED: [2018-03-12 Mon 09:49]
+=======
+** NEXT Prepare presentation
+*** DONE Write down basic outline
+    CLOSED: [2018-03-12 Mon 10:35]
+**** What to show on slides
+- time-dependent Schrödinger Equation and how to get matrix equation
+- general idea of FEM, draw comparison to Euler
+- Crank-Nicolson, Trapez-Method
+- mention the hard parts:
+ * how to build Matrices
+ * computational intensive Inversion
+- mention NGSolve
+**** Practical demonstration
+- Show one-dimensional first
+  * demonstrate different kind of potentials
+  * demonstrate possibility to use different initial conditions
+- Show two-dimensional example
+*** DONE Make slides for presentation
+    CLOSED: [2018-03-12 Mon 12:49]
+**** DONE Slide titles
+     CLOSED: [2018-03-12 Mon 10:46]
+**** DONE Draft slides
+     CLOSED: [2018-03-12 Mon 11:32]
+**** DONE Recheck slides for spelling etc.
+     CLOSED: [2018-03-12 Mon 12:49]
 ** TODO Add a potential barrier for two-dimensional simulation
 * Ideas
 ** Use more sophisticated eigen value solvers

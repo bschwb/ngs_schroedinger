@@ -16,7 +16,7 @@
 \section{Time-Independent Schrödinger Equation}
 We solve the time-independent Schrödinger equation in 2D on a unit square
 $\Omega = [0,1]^2$.
-\[ -\frac{\hbar}{2m} \nabla^2 \Psi + V \Psi = E \Psi\]
+\[ -\frac{\hbar^2}{2m} \nabla^2 \Psi + V \Psi = E \Psi\]
 An infinite potential $V$ outside of the square forces the solution to zero
 outside and especially on the boundary.
 So we have $u = 0$ on $\partial\Omega$.
@@ -25,7 +25,7 @@ So we have $u = 0$ on $\partial\Omega$.
 The variational formulation thus is:
 
 Find $\Psi \in H^1_0(\Omega)$, s.t. $\forall \phi \in H^1_0(\Omega)$:
-\[ \int_{\Omega} \frac{\hbar}{2m} \nabla \Psi \cdot \nabla\phi \dx =
+\[ \int_{\Omega} \frac{\hbar^2}{2m} \nabla \Psi \cdot \nabla\phi \dx =
   \int_{\Omega} (E - V) \Psi \phi\dx\]
 
 Which with matrices then reads as $A u = \lambda M u$.
@@ -51,12 +51,12 @@ So the inverse iteration here is:
 
 \section{Time-Dependent Schrödinger Equation}
 Now we solve the time-dependent Schrödinger equation:
-\[ -\frac{\hbar}{2m} \nabla^2 \Psi + V \Psi = i \hbar \frac{\partial\Psi}{\partial{}t}\]
+\[ -\frac{\hbar^2}{2m} \nabla^2 \Psi + V \Psi = i \hbar \frac{\partial\Psi}{\partial{}t}\]
 
 \subsection{Variational Formulation}
 
 Find $\Psi(t) \in H^1_0(\Omega)$, s.t. $\forall \phi(t) \in H^1_0(\Omega)$:
-\[ \int_{\Omega} \frac{\hbar}{2m} \nabla \Psi \cdot \nabla\phi \dx +
+\[ \int_{\Omega} \frac{\hbar^2}{2m} \nabla \Psi \cdot \nabla\phi \dx +
   \int_{\Omega} V \Psi \phi\dx = i \hbar\int_{\Omega}
   \frac{\partial\Psi}{\partial{}t} \phi\dx\]
 
@@ -70,7 +70,7 @@ $\hbar k_0$ and $\sigma = \Delta x$ uncertainty in the position of the particle.
 Here $x$ can be 1, 2 or 3-dimensional and the function still needs to be
 normalized to $\int_{\Omega}\psi(x)^2\dx = 1$
 
-\subsubsection{Time Stepping}
+\subsubsection{Time-Stepping}
 From~\cite{Sehra07} we know that the Crank-Nicolson method works well for time
 discretization of this equation.
 \[ \frac{\Dt}{2} (A u_{n+1} + A u_{n}) = M (u_{n+1} - u_n) \]
