@@ -1,8 +1,12 @@
 from math import pi
 from time import sleep
 
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
 import ngsolve as ngs
 import netgen.meshing as ngm
+from ngsolve import x, grad, exp
 from ngsolve.internal import viewoptions, visoptions
 viewoptions.drawedges='1'
 visoptions.scaledeform1='100'
@@ -16,8 +20,10 @@ x_min = -50
 x_max = 50
 length = x_max - x_min
 pnums = []
+xs = []
 for i in range(0, n_elems+1):
     pnt_x = x_min + length * i / n_elems
+    xs.append(pnt_x)
     pnums.append(m.Add(ngm.MeshPoint(ngm.Pnt(pnt_x, 0, 0))))
 
 for i in range(0, n_elems):
@@ -38,7 +44,7 @@ v = fes.TestFunction()
 ## Potentials
 ### Potential barrier
 barrier_w = 2
-barrier_h = 2
+barrier_h = 1
 potential = ngs.CoefficientFunction(ngs.IfPos(x, barrier_h, 0) - ngs.IfPos(x-barrier_w, barrier_h, 0))
 
 ### Square potential
@@ -46,6 +52,9 @@ potential = ngs.CoefficientFunction(ngs.IfPos(x, barrier_h, 0) - ngs.IfPos(x-bar
 
 ### Zero potential
 # potential = ngs.CoefficientFunction(0)
+
+gf_potential = ngs.GridFunction(fes)
+gf_potential.Set(potential)
 
 a = ngs.BilinearForm(fes)
 a += ngs.SymbolicBFI(1/2 * grad(u) * grad(v) + potential * u * v)
@@ -75,13 +84,13 @@ for i in range(len(gf_psi.vec)):
     if not freedofs[i]:
         gf_psi.vec[i] = 0
 
-ngs.Draw(ngs.Norm(gf_psi), mesh, name='abs(psi)')
+# ngs.Draw(ngs.Norm(gf_psi), mesh, name='abs(psi)')
 # ngs.Draw(gf_psi.real, mesh, name='psi.real')
 # ngs.Draw(gf_psi.imag, mesh, name='psi.imag')
 
 ## Crank-Nicolson time step
 max_time = 100
-timestep = 0.01
+timestep = 0.1
 t = 0
 
 mstar = m.mat.CreateMatrix()
@@ -90,12 +99,18 @@ inv = mstar.Inverse(freedofs)
 
 w = gf_psi.vec.CreateVector()
 du = gf_psi.vec.CreateVector()
+
+fig = plt.figure()
+ims = []
 while t < max_time:
     t += timestep
-    sleep(0.001)
     w.data = a.mat * gf_psi.vec
     du.data = inv * w
     gf_psi.vec.data -= timestep * du
 
     print('t: ', t, ' Norm(psi): ', ngs.Norm(gf_psi.vec))
-    ngs.Redraw()
+    ims.append(plt.plot(xs, abs(gf_psi.vec.FV().NumPy()), 'g', xs, gf_potential.vec.FV().NumPy(), 'black'))
+    # ngs.Redraw()
+
+im_ani = animation.ArtistAnimation(fig, ims, interval=0, blit=True)
+plt.show()
